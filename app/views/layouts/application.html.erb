@@ -13,8 +13,8 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class"container">
-          <a class-"navbar-brand" href="#">
+        <div class="container">
+          <a class="navbar-brand" href="#">
             <span>Bookers</span>
           </a>
 
@@ -26,25 +26,39 @@
             <ul class="navbar-nav ml-auto">
 
       <% if user_signed_in? %>
-        <li>
-          <%= link_to 'Home', new_book_path %>
-      </li>
-        <li>
-          <%= link_to 'Users', user_path(current_user.id) %>
-      </li>
-        <li>
-          <%= link_to 'Books', book_path(current_user.id) %>
+      <li>
+        <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
+          <i class="fas fa-home" aria-hidden="true">
+          </i>
+        Home
+        <% end %>
       </li>
       <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <%= link_to users_path, class: 'nav-link text-light' do %>
+          <i class="fas fa-users" aria-hidden="true">
+          </i>
+          Users
+        <% end %>
+      </li>
+      <li>
+        <%= link_to 'Books', books_path, class: 'nav-link text-light' %>
+      </li>
+      <li>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
       </li>
       <% else %>
-        <li>
-          <%= link_to "新規登録", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_user_session_path %>
-        </li>
+      <li>
+        <%= link_to 'Home', root_path, class: 'nav-link text-light' %>
+      </li>
+      <li>
+        <%= link_to 'About', about_path, class: 'nav-link text-light' %>
+      </li>
+      <li>
+        <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-light' %>
+      </li>
+      <li>
+        <%= link_to "Log in", new_user_session_path, class: 'nav-link text-light' %>
+      </li>
         <% end %>
         </ul>
       </div>
