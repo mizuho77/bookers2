@@ -1,3 +1,7 @@
+<% flash.each do |message_type, message| %>
+  <%= content_tag :div, message, class: message_type %>
+<% end %>
+
 <p id="notice"></p>
 <div class="container px-5 px-sm-0">
   <div class="row">
